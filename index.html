@@ -1,403 +1,301 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CF Mentor - Supercharge Your Codeforces Practice</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            color: #333;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            text-align: center;
-            padding: 60px 0 40px;
-            color: white;
-        }
-
-        .logo {
-            font-size: 3.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .tagline {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            margin-bottom: 30px;
-        }
-
-        .hero-section {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            margin: 0 20px 40px;
-            padding: 50px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-        }
-
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 18px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            margin: 20px 0;
-        }
-
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
-        }
-
-        .download-btn:active {
-            transform: translateY(0);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .feature-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .feature-description {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .installation-section {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 40px;
-            margin: 40px 20px;
-            backdrop-filter: blur(10px);
-        }
-
-        .installation-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: #333;
-        }
-
-        .install-steps {
-            list-style: none;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .install-step {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: rgba(102, 126, 234, 0.1);
-            border-radius: 10px;
-        }
-
-        .step-number {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-
-        .step-text {
-            flex: 1;
-            line-height: 1.5;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .github-link {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .github-link:hover {
-            color: white;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 2.5rem;
-            }
-
-            .tagline {
-                font-size: 1.1rem;
-            }
-
-            .hero-section {
-                padding: 30px 20px;
-                margin: 0 10px 30px;
-            }
-
-            .installation-section {
-                padding: 30px 20px;
-                margin: 30px 10px;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                margin: 30px 0;
-            }
-
-            .feature-card {
-                padding: 25px 20px;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .feature-card, .hero-section, .installation-section {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .feature-card:nth-child(2) { animation-delay: 0.1s; }
-        .feature-card:nth-child(3) { animation-delay: 0.2s; }
-        .feature-card:nth-child(4) { animation-delay: 0.3s; }
-        .feature-card:nth-child(5) { animation-delay: 0.4s; }
-        .feature-card:nth-child(6) { animation-delay: 0.5s; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Luck Engine - How Randomness Shapes the Top</title>
+  <meta name="description" content="An interactive simulation revealing how randomness and skill combine to shape the top of any competitive hierarchy.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script type="module" crossorigin src="./assets/index-C7BWBCa7.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CZ-ud4VH.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">CF Mentor 🚀</div>
-            <div class="tagline">Supercharge Your Codeforces Practice</div>
-        </header>
+  <div id="tsparticles" aria-hidden="true"></div>
 
-        <section class="hero-section">
-            <h1 style="font-size: 2.2rem; margin-bottom: 20px; color: #333;">Take Your Competitive Programming to the Next Level</h1>
-            <p style="font-size: 1.1rem; color: #666; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                CF Mentor seamlessly integrates into Codeforces, providing advanced problem filtering, in-page notes, ratings, bookmarks, and a stopwatch — all without leaving the site.
-            </p>
-            
-            <a href="#" class="download-btn" id="downloadBtn">
-                <span>📥</span>
-                Download Extension
-            </a>
-            
-            <p style="margin-top: 15px; color: #888; font-size: 0.9rem;">
-                Compatible with Chrome & Chromium-based browsers
-            </p>
-        </section>
-
-        <section class="features-grid">
-            <div class="feature-card">
-                <span class="feature-icon">⏱</span>
-                <h3 class="feature-title">Stopwatch & Session Tracking</h3>
-                <p class="feature-description">Time your problem-solving sessions, pause/resume anytime, and track how long you spend on each problem.</p>
-            </div>
-
-            <div class="feature-card">
-                <span class="feature-icon">⭐</span>
-                <h3 class="feature-title">Bookmarks & Custom Ratings</h3>
-                <p class="feature-description">Save problems for later and assign difficulty ratings that fit your personal training style.</p>
-            </div>
-
-            <div class="feature-card">
-                <span class="feature-icon">📊</span>
-                <h3 class="feature-title">Dual Rating System</h3>
-                <p class="feature-description">Choose between Codeforces original rating or Clist rating for problem difficulty display.</p>
-            </div>
-
-            <div class="feature-card">
-                <span class="feature-icon">📝</span>
-                <h3 class="feature-title">In-Page Notes</h3>
-                <p class="feature-description">Write and save notes directly on problem pages — ideas, solutions, or reminders are always accessible.</p>
-            </div>
-
-            <div class="feature-card">
-                <span class="feature-icon">🔍</span>
-                <h3 class="feature-title">Advanced Problem Filtering</h3>
-                <p class="feature-description">Search by tags, difficulty range, solved status, problem index, and combine tags with AND/OR logic.</p>
-            </div>
-
-            <div class="feature-card">
-                <span class="feature-icon">📅</span>
-                <h3 class="feature-title">Contest Reminders</h3>
-                <p class="feature-description">Get notified before upcoming Codeforces contests so you never miss an opportunity to compete.</p>
-            </div>
-        </section>
-
-        <section class="installation-section">
-            <h2 class="installation-title">Quick Installation</h2>
-            <ol class="install-steps">
-                <li class="install-step">
-                    <div class="step-number">1</div>
-                    <div class="step-text">Download the CF Mentor extension file (.crx) using the button above</div>
-                </li>
-                <li class="install-step">
-                    <div class="step-number">2</div>
-                    <div class="step-text">Open Chrome and navigate to <strong>chrome://extensions/</strong></div>
-                </li>
-                <li class="install-step">
-                    <div class="step-number">3</div>
-                    <div class="step-text">Enable <strong>Developer Mode</strong> using the toggle in the top-right corner</div>
-                </li>
-                <li class="install-step">
-                    <div class="step-number">4</div>
-                    <div class="step-text">Drag and drop the downloaded .crx file onto the extensions page</div>
-                </li>
-                <li class="install-step">
-                    <div class="step-number">5</div>
-                    <div class="step-text">Click <strong>"Add Extension"</strong> when prompted and start using CF Mentor on Codeforces!</div>
-                </li>
-            </ol>
-        </section>
+  <!-- ======== NAVBAR ======== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-brand">
+      <span class="navbar-logo">The Luck Engine</span>
+      <span class="navbar-subtitle">"How randomness shapes the top"</span>
     </div>
+    <div class="navbar-actions">
+      <button class="icon-btn" id="infoBtn" aria-label="About this simulation" title="About this simulation">ⓘ</button>
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">🌙</button>
+    </div>
+  </nav>
 
-    <footer>
-        <div class="container">
-            <p>Made with ❤️ for the competitive programming community</p>
-            <p style="margin-top: 10px;">
-                <a href="#" class="github-link">View on GitHub</a> | 
-                <a href="mailto:your-email@example.com" class="github-link">Contact</a>
-            </p>
+  <!-- ======== MAIN LAYOUT ======== -->
+  <main class="app-layout">
+
+    <!-- ======== LEFT PANEL - CONTROLS ======== -->
+    <aside class="panel-left" id="panelLeft" aria-label="Simulation controls">
+      <!-- Drawer handle (mobile only) -->
+      <div class="drawer-handle" id="drawerHandle">
+        <span class="handle-bar"></span>
+        <span>Configure</span>
+      </div>
+
+      <!-- Section 1: Population -->
+      <div class="card" id="popCard">
+        <div class="card-label">Population Size</div>
+        <div class="seg-group" id="popGroup" role="radiogroup" aria-label="Population size">
+          <button class="seg-btn" data-value="10" role="radio" aria-checked="false">10</button>
+          <button class="seg-btn" data-value="100" role="radio" aria-checked="false">100</button>
+          <button class="seg-btn" data-value="1000" role="radio" aria-checked="false">1K</button>
+          <button class="seg-btn" data-value="10000" role="radio" aria-checked="false">10K</button>
+          <button class="seg-btn active" data-value="100000" role="radio" aria-checked="true">100K</button>
+          <button class="seg-btn" data-value="1000000" role="radio" aria-checked="false">1M</button>
         </div>
-    </footer>
+        <div class="population-counter">
+          <span class="count-val" id="popCounter">100,000</span>
+          <span>people</span>
+          <span class="perf-badge" id="perfBadge">⚡ Fast mode enabled</span>
+        </div>
+      </div>
 
-    <script>
-        // Add your Google Drive download link here
-        const EXTENSION_DOWNLOAD_URL = 'https://drive.google.com/file/d/1UJurmkNkAvIXWcPlc7VtkXj29tXgoEcJ/view';
+      <!-- Section 2: Luck / Skill Weight -->
+      <div class="card">
+        <div class="card-label">Luck ←→ Skill Weight</div>
+        <div class="slider-container">
+          <div class="slider-labels">
+            <span>100% Luck</span>
+            <span>100% Skill</span>
+          </div>
+          <input type="range" class="weight-slider" id="weightSlider" min="0" max="100" value="95"
+                 aria-label="Luck vs Skill weight" aria-valuemin="0" aria-valuemax="100" aria-valuenow="95">
+        </div>
+        <div class="weight-readout">
+          <span class="weight-badge luck" id="luckBadge">🎲 Luck: 5%</span>
+          <span class="weight-badge skill" id="skillBadge">🧠 Skill: 95%</span>
+        </div>
+        <div class="preset-btns">
+          <button class="preset-btn" data-value="100">Pure Skill</button>
+          <button class="preset-btn active" data-value="95">Realistic</button>
+          <button class="preset-btn" data-value="60">Mixed</button>
+          <button class="preset-btn" data-value="0">Pure Luck</button>
+        </div>
+      </div>
+
+      <!-- Section 3: Advanced Options -->
+      <div class="card">
+        <button class="accordion-toggle" id="advToggle" aria-expanded="false" aria-controls="advBody">
+          <span>Advanced Options</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="accordion-body" id="advBody" role="region">
+          <div class="accordion-content">
+            <div class="adv-row" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+              <div class="card-label" style="margin-bottom: 0;">Luck Resolution</div>
+              <div class="seg-group" id="luckResGroup" role="radiogroup" aria-label="Luck resolution">
+                <button class="seg-btn" data-value="10" role="radio" aria-checked="false">10</button>
+                <button class="seg-btn active" data-value="100" role="radio" aria-checked="true">100</button>
+                <button class="seg-btn" data-value="1000" role="radio" aria-checked="false">1K</button>
+                <button class="seg-btn" data-value="10000" role="radio" aria-checked="false">10K</button>
+              </div>
+            </div>
+            <div class="adv-row" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+              <div class="card-label" style="margin-bottom: 0;">Skill Resolution</div>
+              <div class="seg-group" id="skillResGroup" role="radiogroup" aria-label="Skill resolution">
+                <button class="seg-btn" data-value="10" role="radio" aria-checked="false">10</button>
+                <button class="seg-btn active" data-value="100" role="radio" aria-checked="true">100</button>
+                <button class="seg-btn" data-value="1000" role="radio" aria-checked="false">1K</button>
+                <button class="seg-btn" data-value="10000" role="radio" aria-checked="false">10K</button>
+              </div>
+            </div>
+            <div class="adv-row">
+              <label for="topNInput">Top N performers</label>
+              <input type="number" class="adv-input" id="topNInput" min="3" max="50" value="10">
+            </div>
+            <div class="adv-row">
+              <label>Lock seed</label>
+              <label class="seed-toggle">
+                <input type="checkbox" id="lockSeed">
+                <span class="seed-switch"></span>
+                <span style="font-size:1rem;cursor:pointer" id="diceIcon">🎲</span>
+              </label>
+            </div>
+            <div class="formula-display" id="formulaDisplay">
+              Score = (<span class="skill-part">Skill × 0.95</span>) + (<span class="luck-part">Luck × 0.05</span>)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Run Button -->
+      <div style="display:flex;flex-direction:column;">
+        <button class="run-btn" id="runBtn" aria-label="Run simulation">▶ RUN SIMULATION</button>
+        <button class="rerun-link" id="rerunBtn" style="display:none">↻ Rerun with same seed</button>
+        <div class="run-meta" id="runMeta"></div>
+      </div>
+
+      <!-- Section 6: Insight Card -->
+      <div class="insight-card">
+        <blockquote>
+          "When skill dominates, the best performers are still unusually lucky. This is the paradox of meritocracy."
+        </blockquote>
+        <a class="learn-link" id="learnLink">Learn why →</a>
+      </div>
+
+    </aside>
+
+    <!-- ======== RIGHT PANEL - RESULTS ======== -->
+    <section class="panel-right" id="panelRight" aria-label="Simulation results">
+
+      <!-- Placeholder before first run -->
+      <div class="results-placeholder" id="resultsPlaceholder">
+        <div class="placeholder-icon">🎲</div>
+        <div class="placeholder-text">Configure your universe and run the simulation</div>
+        <div class="placeholder-sub">Adjust population, luck weight, and resolution on the left, then hit Run.</div>
+      </div>
+
+      <!-- Results (hidden until first run) -->
+      <div class="results-content" id="resultsContent">
+
+        <!-- Top Performers Table -->
+        <h2 class="section-label">Top Performers</h2>
+        <div class="table-section" id="tableSection">
+          <div class="table-header">
+            <span class="table-title">Leaderboard</span>
+          </div>
+          <div class="table-wrapper">
+            <table class="perf-table" id="perfTable" aria-label="Top performers table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>ID</th>
+                  <th>Skill</th>
+                  <th>Luck</th>
+                  <th>Final Score</th>
+                  <th>Skill %ile</th>
+                  <th>Luck %ile</th>
+                  <th>Luck Bar</th>
+                </tr>
+              </thead>
+              <tbody id="perfTableBody"></tbody>
+            </table>
+          </div>
+          <div class="table-callout" id="tableCallout"></div>
+        </div>
+
+        <!-- Visualizations -->
+        <h2 class="section-label">Population Scatter</h2>
+        <div class="scatter-section" id="scatterSection">
+          <div class="scatter-header">
+            <div class="scatter-title">Population Scatter: Skill vs Luck</div>
+            <div class="scatter-subtitle" id="scatterSubtitle">Top 10 highlighted in gold · 10,000 total people</div>
+          </div>
+          <div class="scatter-canvas-wrap">
+            <canvas id="scatterCanvas" width="800" height="500"></canvas>
+            <div class="scatter-quadrant-labels" id="quadrantLabels">
+              <span class="q-label q-tl">Lucky but unskilled</span>
+              <span class="q-label q-tr">High Skill + High Luck</span>
+              <span class="q-label q-bl">Low both</span>
+              <span class="q-label q-br">Skilled but unlucky</span>
+            </div>
+            <div class="scatter-tooltip" id="scatterTooltip"></div>
+          </div>
+        </div>
+
+        <!-- Population Scaling Chart (Worm Graph) -->
+        <h2 class="section-label">Luck & Skill vs Population Scale</h2>
+        <div class="results-scaling-chart" style="background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--card-radius);padding:16px;margin-bottom:32px;box-shadow:var(--shadow-sm);">
+          <div style="font-family:var(--font-body);font-size:0.8rem;color:var(--text-muted);margin-bottom:12px;">Average percentiles of the top performers as population grows from 1 to 1M.</div>
+          <div style="position: relative; height: 300px; width: 100%;">
+            <canvas id="scalingChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Hero Stats Bar -->
+        <h2 class="section-label">Key Metrics</h2>
+        <ul class="stats-bullets" id="statsBar">
+          <li class="stat-bullet" id="statAvgLuck">
+            <span class="stat-label">Avg Luck of Top N:</span>
+            <span class="stat-value" data-target="0">-</span>
+            <span class="stat-sub"></span>
+          </li>
+          <li class="stat-bullet" id="statAvgSkill">
+            <span class="stat-label">Avg Skill of Top N:</span>
+            <span class="stat-value" data-target="0">-</span>
+            <span class="stat-sub"></span>
+          </li>
+          <li class="stat-bullet" id="statWorst">
+            <span class="stat-label">Worst in Top N:</span>
+            <span class="stat-value" data-target="0">-</span>
+            <span class="stat-sub"></span>
+          </li>
+          <li class="stat-bullet" id="statLuckRatio">
+            <span class="stat-label">Luck/Skill Ratio in Top N:</span>
+            <span class="stat-value" data-target="0">-</span>
+            <span class="stat-sub"></span>
+          </li>
+        </ul>
+
+        <!-- Distribution Charts Removed -->
         
-        document.getElementById('downloadBtn').addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Replace with your actual Google Drive direct download link
-            if (EXTENSION_DOWNLOAD_URL === 'YOUR_GOOGLE_DRIVE_DIRECT_DOWNLOAD_LINK_HERE') {
-                alert('Please update the download link in the JavaScript section with your Google Drive direct download URL.');
-                return;
-            }
-            
-            // Create a temporary anchor element to trigger download
-            const link = document.createElement('a');
-            link.href = EXTENSION_DOWNLOAD_URL;
-            link.download = 'cf-mentor-extension.crx';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            // Optional: Track download analytics
-            console.log('Extension download initiated');
-        });
+        <!-- Bump Chart Removed -->
 
-        // Smooth scrolling for any internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        <!-- Dynamic Narrative -->
+        <h2 class="section-label">What Just Happened</h2>
+        <div class="narrative-card" id="narrativeCard">
+          <p id="narrativeText"></p>
+        </div>
 
-        // Add some interactive effects
-        document.querySelectorAll('.feature-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-    </script>
+        <!-- Explainer Section -->
+        <div class="explainer-section" id="explainerSection">
+          <h2>Why does luck matter even when skill dominates?</h2>
+          <p>
+            In any large population, the most skilled people are bunched closely together at the top. When thousands compete, the difference between the 99th and 99.9th percentile of skill is tiny. But luck varies independently - and when you stack even a small luck bonus on top of near-identical skill, luck becomes the tiebreaker.
+          </p>
+          <p>
+            This is known as <strong>"The Paradox of Skill."</strong> As overall skill levels rise and converge, luck plays an increasingly large role in determining who ends up on top. Coined by Michael Mauboussin, this concept explains why the most successful outcomes - in business, sports, academia - almost always involve someone who was both talented <em>and</em> lucky.
+          </p>
+
+          <div class="funnel-diagram">
+            <div class="funnel-level wide">Population (Many Competitors)</div>
+            <div class="funnel-level mid">Skilled Pool (Compressed)</div>
+            <div class="funnel-level narrow">Winners</div>
+            <div class="funnel-annotation">↑ Luck is the differentiator here</div>
+          </div>
+
+          <p>
+            The key insight is structural, not moral. It doesn't mean winners didn't earn it - it means that among many deserving candidates, randomness tipped the scales. The larger the population, the more extreme this effect becomes.
+          </p>
+          <p>
+            <span class="explainer-cta" onclick="document.getElementById('panelLeft').scrollIntoView({behavior:'smooth'})">
+              Experiment with the controls above to see for yourself →
+            </span>
+          </p>
+        </div>
+
+      </div><!-- /results-content -->
+
+    </section>
+
+  </main>
+
+  <!-- ======== INFO MODAL ======== -->
+  <div class="modal-overlay" id="infoModal" role="dialog" aria-modal="true" aria-label="About The Luck Engine">
+    <div class="modal-content" style="position:relative;">
+      <button class="modal-close" id="modalClose" aria-label="Close modal">✕</button>
+      <h2>About The Luck Engine</h2>
+      <p>
+        This simulation generates a population of people, each with random <strong>skill</strong> and <strong>luck</strong> values. Their final score is a weighted combination of both. You control the weight - how much luck matters vs. skill.
+      </p>
+      <p>
+        Even when skill weight is 95% or higher, the <em>top</em> performers almost always had unusually high luck. This isn't a fluke - it's a mathematical certainty in large populations where skill compresses at the top.
+      </p>
+      <p>
+        Inspired by the work of <strong>Michael Mauboussin</strong> on "The Paradox of Skill" and research on success, talent, and randomness.
+      </p>
+      <p style="color:var(--text-dim);font-size:0.78rem;">
+        Built as an educational tool. No data is collected. Everything runs in your browser.
+      </p>
+    </div>
+  </div>
+
+  <!-- Table Tooltip -->
+  <div class="table-tooltip" id="tableTooltip"></div>
+
 </body>
 </html>
