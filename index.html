@@ -7,8 +7,8 @@
   <meta name="description" content="An interactive simulation revealing how randomness and skill combine to shape the top of any competitive hierarchy.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
-  <script type="module" crossorigin src="./assets/index-C7BWBCa7.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CZ-ud4VH.css">
+  <script type="module" crossorigin src="./assets/index-C-1o5ZTR.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Bg7BebO2.css">
 </head>
 <body>
   <div id="tsparticles" aria-hidden="true"></div>
@@ -201,8 +201,10 @@
         <h2 class="section-label">Luck & Skill vs Population Scale</h2>
         <div class="results-scaling-chart" style="background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--card-radius);padding:16px;margin-bottom:32px;box-shadow:var(--shadow-sm);">
           <div style="font-family:var(--font-body);font-size:0.8rem;color:var(--text-muted);margin-bottom:12px;">Average percentiles of the top performers as population grows from 1 to 1M.</div>
-          <div style="position: relative; height: 300px; width: 100%;">
-            <canvas id="scalingChart"></canvas>
+          <div style="overflow-x: auto;">
+            <div style="position: relative; height: 300px; width: 800px; min-width: 600px;">
+              <canvas id="scalingChart"></canvas>
+            </div>
           </div>
         </div>
 
@@ -251,12 +253,7 @@
             This is known as <strong>"The Paradox of Skill."</strong> As overall skill levels rise and converge, luck plays an increasingly large role in determining who ends up on top. Coined by Michael Mauboussin, this concept explains why the most successful outcomes - in business, sports, academia - almost always involve someone who was both talented <em>and</em> lucky.
           </p>
 
-          <div class="funnel-diagram">
-            <div class="funnel-level wide">Population (Many Competitors)</div>
-            <div class="funnel-level mid">Skilled Pool (Compressed)</div>
-            <div class="funnel-level narrow">Winners</div>
-            <div class="funnel-annotation">↑ Luck is the differentiator here</div>
-          </div>
+
 
           <p>
             The key insight is structural, not moral. It doesn't mean winners didn't earn it - it means that among many deserving candidates, randomness tipped the scales. The larger the population, the more extreme this effect becomes.
